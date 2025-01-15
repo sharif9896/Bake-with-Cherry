@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETAIL BUDDY</title>
+    <link rel="stylesheet" stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: rgba(250, 59, 138, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ff img {
+            padding-top: 10px;
+            width: 300px;
+            height: 40vh;
+            padding-right: 50px;
+            padding-left: 10px;
+            /* padding-left: 20px; */
+        }
+
+        .designss {
+            background-color: white;
+            border: 1px solid #b4afaf;
+            border-radius: 5px;
+            padding: 0px 20px;
+            /* margin-top: 3%; */
+            /* margin: 20px 20px; */
+            margin-top: 80px;
+            width: 350px;
+            height: fit-content;
+            padding-bottom: 20px;
+            /* min-height: 20px; */
+            padding-right: 0%;
+            padding-left: 0%;
+            box-shadow: 0px 0px 60px #505050;
+        }
+
+        .loi {
+            width: 260px;
+            height: 30px;
+            padding-top: 7px;
+            margin-top: 10px;
+            background-color: rgb(0, 65, 0);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- <span class="subhead"><h1>Login</h1></span> -->
+    <center>
+        <form method="post" action="" class="designss">
+            <!-- <div class="ff"><img src="ssd.PNG" alt=""></div> --><div class="value1" style="display:flex;"><img src="logo.png" style="width:100px;height:80px" class="value">
+            <div class="h5" style="margin-top:20px;">Bake with <b style="
+    color: #303030;">Cherry</b><br><b style="color:rgba(172, 4, 46, 0.79);">"Where Quality and taste are known Best."</b></div>
+        </div>
+
+            <table border="0" cellpadding="0.01" cellspacing="0.01" style=" padding-top: 10px;"><br>
+                <!-- <div class="lin2" style="border-top:1px solid #5050908f; padding-bottom: 20px;"></div> -->
+                <?php
+                session_start();
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "bakewithcherry";
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                if (isset($_POST['login'])) {
+                    $email = $_POST['email'];
+                    $password = $_POST['pass'];
+
+                    $sql = mysqli_query($conn, "SELECT * FROM signin WHERE Email='$email' && Password='$password'");
+
+                    $total = mysqli_num_rows($sql);
+                    if ($total) {
+                        //if its sucessfull
+
+                        header("location:dashboard.php");
+                    } else {
+                        $err = "Sorry! This Sides only for Owner's.";
+                    }
+                }
+                require_once('partials/_head.php');
+
+
+
+                // if(isset($_SESSION['email']))
+                // {
+                // 	header("location:home.php");
+                // }
+                // $email=mysqli_real_escape_string($conn,isset($_POST['email']));
+                // $pass=mysqli_real_escape_string($conn,sha1(isset($_POST['pass'])));
+                // if(isset($_POST['email'])==NULL || isset($_POST['pass'])==NULL)
+                // {
+                // 	//
+                // }
+                // else
+                // {
+                // 	$sql=mysqli_query($conn,"SELECT * FROM `facultyreg` WHERE Email='$email' && Password='$pass'");
+                // 	if(mysqli_num_rows($sql)==1)
+                // 	{
+                // 		$_SESSION['email']=$email;
+                // 		header("location:home.php");
+                // 	}
+                // 	else
+                // 	{
+                // 		echo "Incorrect Email ID or Password";
+                // 	}
+                // }
+
+                ?>
+
+                <tr>
+                    <td class="labelss"><span style="width: 150px;  height: 200px; border: 1px solid #5a5a5a6e;  background-color: rgba(143, 142, 142, 0.247);  padding:7px; gap: 0%; color: #505050;"><i class="fas fa-user"></i></span></td>
+                    <td><input type="text" required="required" name="email" class="form-control" size="25" placeholder=" Enter Username" /></td>
+                </tr>
+                <tr>
+                    <td class="labelss"><span style="width: 100px; height: 150px;   border: 1px solid #5a5a5a6e; background-color: rgba(143, 142, 142, 0.247);  padding:7px; gap: 0%; color: #505050;"><i class="fas fa-lock"></i></span></td>
+                    <td><input type="password" required="required" name="pass" class="form-control" size="25" placeholder=" Enter Password" /></td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="Login" name="login" class="btn btn-danger" />
+        </form>
+    </center>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="sweetalert.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
