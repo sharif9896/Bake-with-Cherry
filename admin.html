@@ -67,60 +67,7 @@
         </div>
 
             <table border="0" cellpadding="0.01" cellspacing="0.01" style=" padding-top: 10px;"><br>
-                <!-- <div class="lin2" style="border-top:1px solid #5050908f; padding-bottom: 20px;"></div> -->
-                <?php
-                session_start();
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "bakewithcherry";
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                if (isset($_POST['login'])) {
-                    $email = $_POST['email'];
-                    $password = $_POST['pass'];
-
-                    $sql = mysqli_query($conn, "SELECT * FROM signin WHERE Email='$email' && Password='$password'");
-
-                    $total = mysqli_num_rows($sql);
-                    if ($total) {
-                        //if its sucessfull
-
-                        header("location:dashboard.php");
-                    } else {
-                        $err = "Sorry! This Sides only for Owner's.";
-                    }
-                }
-                require_once('partials/_head.php');
-
-
-
-                // if(isset($_SESSION['email']))
-                // {
-                // 	header("location:home.php");
-                // }
-                // $email=mysqli_real_escape_string($conn,isset($_POST['email']));
-                // $pass=mysqli_real_escape_string($conn,sha1(isset($_POST['pass'])));
-                // if(isset($_POST['email'])==NULL || isset($_POST['pass'])==NULL)
-                // {
-                // 	//
-                // }
-                // else
-                // {
-                // 	$sql=mysqli_query($conn,"SELECT * FROM `facultyreg` WHERE Email='$email' && Password='$pass'");
-                // 	if(mysqli_num_rows($sql)==1)
-                // 	{
-                // 		$_SESSION['email']=$email;
-                // 		header("location:home.php");
-                // 	}
-                // 	else
-                // 	{
-                // 		echo "Incorrect Email ID or Password";
-                // 	}
-                // }
-
-                ?>
+                
 
                 <tr>
                     <td class="labelss"><span style="width: 150px;  height: 200px; border: 1px solid #5a5a5a6e;  background-color: rgba(143, 142, 142, 0.247);  padding:7px; gap: 0%; color: #505050;"><i class="fas fa-user"></i></span></td>

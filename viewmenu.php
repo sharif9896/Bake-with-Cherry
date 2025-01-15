@@ -1,108 +1,4 @@
-  <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "bakewithcherry";
 
-    // Connect to the database
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Fetch products
-    $sql = "SELECT * FROM menu_entry";
-    $result = $conn->query($sql);
-    $products = $result->fetch_all(MYSQLI_ASSOC);
-
-    if (isset($_GET['id'])) {
-        $d = $_GET['id'];
-        $sql = mysqli_query($conn, "DELETE FROM `menu_entry` WHERE id='$d'");
-        if ($sql) {
-    ?>
-          <script type="text/javascript" language="javascript">
-              alert('Successfully Deleted');
-          </script>
-          <?php
-        }
-    }
-            ?><?php
-
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "bakewithcherry";
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // $email = $_POST['email'];
-                // $x = mysqli_query($conn, "SELECT * FROM patinsignin WHERE Email='$email'");
-                // $y = mysqli_fetch_array($x);
-
-                if (isset($_POST['register'])) {
-
-                    if (isset($_FILES['image']['name']) && $_FILES['image']['error'] == 0) {
-                        $image = $_FILES['image'];
-                        $filename = $_FILES['image']['name'];
-                        $temp = $_FILES['image']['tmp_name'];
-                        $folder = "images/" . $filename;
-                        move_uploaded_file($temp, $folder);
-                        // echo $folder;
-                    } else {
-                        echo "Succesfully Not Loaded";
-                    }
-
-
-                    $pn = $_POST['pn'];
-                    $prn = $_POST['prn'];
-                    $per = $_POST['per'];
-                    $peru = $_POST['peru'];
-
-                    $sql = mysqli_query($conn, "INSERT INTO `menu_entry`(`Product Name`, `Product Price`, `productImage`, `product offer`, `des`) VALUES ('$pn','$prn','$folder','$per','$peru')");
-
-                    if ($sql) {
-                ?>
-          <div class="hos">
-              <h4><i class="fas fa-check"></i> Successfully Entered!</h4>
-          </div>
-      <?php
-                    } else {
-                        echo "Invalid Username and Password";
-                    }
-                }
-
-                if (isset($_POST['login'])) {
-
-                    if (isset($_FILES['image']['name']) && $_FILES['image']['error'] == 0) {
-                        $image = $_FILES['image'];
-                        $filename = $_FILES['image']['name'];
-                        $temp = $_FILES['image']['tmp_name'];
-                        $folder = "images/" . $filename;
-                        move_uploaded_file($temp, $folder);
-                        // echo $folder;
-                    } else {
-                        echo "Succesfully Not Loaded";
-                    }
-
-
-                    $pnm = $_POST['pnm'];
-                    $prnm = $_POST['prnm'];
-                    $perm = $_POST['perm'];
-                    $perum = $_POST['perum'];
-
-                    $sql = mysqli_query($conn, "INSERT INTO `gallery_entry`(`Product Name`, `Product Price`, `productImage`, `product offer`, `des`) VALUES ('$pnm','$prnm','$folder','$perm','$perum')");
-
-                    if ($sql) {
-        ?>
-          <div class="hos">
-              <h4><i class="fas fa-check"></i> Successfully Entered!</h4>
-          </div>
-  <?php
-                    } else {
-                        echo "Invalid Username and Password";
-                    }
-                }
-
-    ?>
   <!DOCTYPE html>
   <html lang="en">
 
@@ -185,26 +81,26 @@
           </div>
 
           <div class="mlk">
-              <a href="dashboard.php">
+              <a href="dashboard.html">
                   <div class="home1"><i class="fas fa-plus">MENU</i></div>
               </a>
-              <a href="dashboard.php">
+              <a href="dashboard.html">
                   <div class="home1"><i class="fas fa-plus">GALLERY</i></div>
               </a>
 
-              <a href="viewmenu.php">
+              <a href="viewmenu.html">
                   <div class="home1"><i class="fas fa-eye">MENU</i></div>
               </a>
 
-              <a href="viewgallery.php">
+              <a href="viewgallery.html">
                   <div class="home1"><i class="fas fa-eye">GALLERY</i></div>
               </a>
 
-              <a href="viewfeedback.php">
+              <a href="viewfeedback.html">
                   <div class="home1"><i class="fas fa-eye">Feedbacks</i></div>
               </a>
 
-              <a href="index.php">
+              <a href="index.html">
                   <div class="home1 btn-outline-danger" style="border:1px solid rgb(172, 4, 54); border-radius: 8px;">Logout</div>
               </a>
               <div class="baar"><img src="aaaaw.png" alt=""></div>
@@ -228,25 +124,25 @@
               <br>
               <br>
               <div class="hhmc">
-                  <a href="dashboard.php">
+                  <a href="dashboard.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-plus">MENU</i></div>
                   </a>
 
-                  <a href="dashboard.php">
+                  <a href="dashboard.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-plus">GALLERY</i></div>
                   </a>
 
-                  <a href="viewmenu.php">
+                  <a href="viewmenu.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-eye">MENU</i></div>
                   </a>
-                  <a href="viewgallery.php">
+                  <a href="viewgallery.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-eye">GALLERY</i></div>
                   </a>
 
-                  <a href="aboutviewfeedbacks.php">
+                  <a href="aboutviewfeedbacks.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-eye">FEEDBACKS</i></div>
                   </a>
-                  <a href="index.php" style="height: 35px;margin-top:3%; width:100%;" class="btn btn-outline-danger">Logout</a>
+                  <a href="index.html" style="height: 35px;margin-top:3%; width:100%;" class="btn btn-outline-danger">Logout</a>
               </div>
           </div>
 
@@ -255,17 +151,6 @@
               <p>Fresh Bakery Items with the Finest Ingredients</p>
           </section>
 
-          <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "bakewithcherry";
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            $i = 1;
-            $x = mysqli_query($conn, "SELECT * FROM `menu_entry`");
-            while ($y = mysqli_fetch_array($x)) {
-            ?>
               <center>
                   <!-- <div class="flexa"> -->
 
@@ -276,20 +161,18 @@
                           <td>
                               <div class="kjg" style="margin-top: 4%;" data-aos="flip-up">
                                   <div class="bx1">
-                                      <div class="pro" style="border-radius:100%;"><?php echo "<img src='$y[productImage]'; width=150px height=100px margin-left=200px>" ?>
+                                      <img src='ni2.jfif'; width=150px height=100px margin-left=200px>
 
                                       </div>
-                                      <div class="name"><?php echo $y['Product Name']; ?>
+                                      <div class="name">Honey Cake
                                       </div>
                                       <div class="nam2">
-                                          <div class="name"><?php echo $y['des']; ?>
-                                              <!-- <div class="ldf2">Date of Availability : <?php echo $y['dob']; ?></div> -->
-                                              <div class="ldf2">₹<?php echo $y['Product Price']; ?>.00</div>
-                                              <div class="ldf2"><?php echo $y['product offer']; ?>% OFF</div>
+                                          <div class="name">It is a Very Delicious Cakes and sweets i ate in my life..
+                                              <div class="ldf2">₹230.00</div>
+                                              <div class="ldf2">10% OFF</div>
                                           </div>
                                       </div>
-                                      <!-- <div class="name"><a href="Appointlogin.php?id=<?php echo $y['id']; ?>"><button>Appointment</button></a></div> -->
-                                      <a href="viewmenu.php?id=<?php echo $y['id']; ?>">
+                                      <a href="index.html">
                                           <div class="name"><i class="fas fa-remove"> Delete</i></div>
                                       </a>
                                   </div>
@@ -299,10 +182,7 @@
 
                   </table>
               </center>
-              <!-- </div> -->
-          <?php
-            }
-            ?>
+              
       </div>
       </div>
       </div>

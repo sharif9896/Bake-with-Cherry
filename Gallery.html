@@ -80,26 +80,26 @@
         </div>
 
         <div class="mlk">
-            <a href="index.php">
+            <a href="index.html">
                 <div class="home1">Home</div>
             </a>
-            <a href="menu.php">
+            <a href="menu.html">
                 <div class="home1">Menu</div>
             </a>
 
-            <a href="Gallery.php">
+            <a href="Gallery.html">
                 <div class="home1">Gallery</div>
             </a>
 
-            <a href="about.php">
+            <a href="about.html">
                 <div class="home1">About Us</div>
             </a>
 
-            <a href="feedback.php">
+            <a href="feedback.html">
                 <div class="home1">Contact Us</div>
             </a>
 
-            <a href="admin.php">
+            <a href="admin.html">
                 <div class="home1 btn-outline-danger" style="border:1px solid rgb(172, 4, 54); border-radius: 8px;">Owner</div>
             </a>
             <div class="baar"><img src="aaaaw.png" alt=""></div>
@@ -122,24 +122,24 @@
             <br>
             <br>
             <div class="hhmc">
-                <a href="index.php">
+                <a href="index.html">
                     <div class="home4" style="border-top: 1px solid #3635354b;border-bottom: 1px solid #3635354b;">Home</div>
                 </a>
-                <a href="menu.php">
+                <a href="menu.html">
                     <div class="home4" style="border-bottom: 1px solid #3635354b;">Menu</div>
                 </a>
 
-                <a href="Gallery.php">
+                <a href="Gallery.html">
                     <div class="home4" style="border-bottom: 1px solid #3635354b;">Gallery</div>
                 </a>
 
-                <a href="feedback.php">
+                <a href="feedback.html">
                     <div class="home4" style="border-bottom: 1px solid #3635354b;">Contact Us</div>
                 </a>
-                <a href="about.php">
+                <a href="about.html">
                     <div class="home4" style="border-bottom: 1px solid #3635354b;">About Us</div>
                 </a>
-                <a href="admin.php" style="height: 35px;margin-top:3%; width:100%;" class="btn btn-outline-danger">Owner</a>
+                <a href="admin.html" style="height: 35px;margin-top:3%; width:100%;" class="btn btn-outline-danger">Owner</a>
             </div>
         </div>
         <center>
@@ -177,39 +177,25 @@
             <p>Fresh Bakery Items with the Finest Ingredients</p>
         </section>
 
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "bakewithcherry";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        $i = 1;
-        $x = mysqli_query($conn, "SELECT * FROM `gallery_entry`");
-        while ($y = mysqli_fetch_array($x)) {
-        ?>
             <center>
                 <!-- <div class="flexa"> -->
                 <!-- <div class="copl" style="display: flex;"></div> -->
                 <div class="card mb-3" style="max-width: 540px;" data-aos="fade-up">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <?php echo "<video src='$y[productImage]'; controls muted width=150px height=100px loop muted autoplay='autoplay'></video>" ?>
+                            <video src='ve1.mp4'; controls muted width=150px height=100px loop muted autoplay='autoplay'></video>
                         </div>
                         <div class="col-md-8" style="margin-top:20%; text-align: justify;">
                             <div class="card-body">
                                 <h5 class="card-title">Bake with Cherry</h5>
-                                <p class="card-text"><?php echo $y['des']; ?></p>
+                                <p class="card-text">Cake</p>
                                 <p class="card-text"><small class="text-body-secondary"></small></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </center>
-            <!-- </div> -->
-        <?php
-        }
-        ?>
+          
     </div>
     </div>
     </div>

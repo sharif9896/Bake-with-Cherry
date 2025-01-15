@@ -1,80 +1,4 @@
-  <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "bakewithcherry";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // $email = $_POST['email'];
-    // $x = mysqli_query($conn, "SELECT * FROM patinsignin WHERE Email='$email'");
-    // $y = mysqli_fetch_array($x);
-
-    if (isset($_POST['register'])) {
-
-        if (isset($_FILES['image']['name']) && $_FILES['image']['error'] == 0) {
-            $image = $_FILES['image'];
-            $filename = $_FILES['image']['name'];
-            $temp = $_FILES['image']['tmp_name'];
-            $folder = "images/" . $filename;
-            move_uploaded_file($temp, $folder);
-            // echo $folder;
-        } else {
-            echo "Succesfully Not Loaded";
-        }
-
-
-        $pn = $_POST['pn'];
-        $prn = $_POST['prn'];
-        $per = $_POST['per'];
-        $peru = $_POST['peru'];
-
-        $sql = mysqli_query($conn, "INSERT INTO `menu_entry`(`Product Name`, `Product Price`, `productImage`, `product offer`, `des`) VALUES ('$pn','$prn','$folder','$per','$peru')");
-
-        if ($sql) {
-    ?>
-          <div class="hos">
-              <h4><i class="fas fa-check"></i> Successfully Entered!</h4>
-          </div>
-      <?php
-        } else {
-            echo "Invalid Username and Password";
-        }
-    }
-
-    if (isset($_POST['login'])) {
-
-        if (isset($_FILES['image']['name']) && $_FILES['image']['error'] == 0) {
-            $image = $_FILES['image'];
-            $filename = $_FILES['image']['name'];
-            $temp = $_FILES['image']['tmp_name'];
-            $folder = "images/" . $filename;
-            move_uploaded_file($temp, $folder);
-            // echo $folder;
-        } else {
-            echo "Succesfully Not Loaded";
-        }
-
-
-        $pnm = $_POST['pnm'];
-        $prnm = $_POST['prnm'];
-        $perm = $_POST['perm'];
-        $perum = $_POST['perum'];
-
-        $sql = mysqli_query($conn, "INSERT INTO `gallery_entry`(`Product Name`, `Product Price`, `productImage`, `product offer`, `des`) VALUES ('$pnm','$prnm','$folder','$perm','$perum')");
-
-        if ($sql) {
-        ?>
-          <div class="hos">
-              <h4><i class="fas fa-check"></i> Successfully Entered!</h4>
-          </div>
-  <?php
-        } else {
-            echo "Invalid Username and Password";
-        }
-    }
-
-    ?>
   <!DOCTYPE html>
   <html lang="en">
 
@@ -164,19 +88,19 @@
                   <div class="home1"><i class="fas fa-plus">GALLERY</i></div>
               </a>
 
-              <a href="viewmenu.php">
+              <a href="viewmenu.html">
                   <div class="home1"><i class="fas fa-eye">MENU</i></div>
               </a>
 
-              <a href="viewgallery.php">
+              <a href="viewgallery.html">
                   <div class="home1"><i class="fas fa-eye">GALLERY</i></div>
               </a>
 
-              <a href="viewfeedback.php">
+              <a href="viewfeedback.html">
                   <div class="home1"><i class="fas fa-eye">Feedbacks</i></div>
               </a>
 
-              <a href="index.php">
+              <a href="index.html">
                   <div class="home1 btn-outline-danger" style="border:1px solid rgb(172, 4, 54); border-radius: 8px;">Logout</div>
               </a>
               <div class="baar"><img src="aaaaw.png" alt=""></div>
@@ -204,21 +128,21 @@
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-plus">MENU</i></div>
                   </a>
 
-                  <a href="Gallery.php">
+                  <a href="Gallery.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-plus">GALLERY</i></div>
                   </a>
 
-                  <a href="viewmenu.php">
+                  <a href="viewmenu.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-eye">MENU</i></div>
                   </a>
-                  <a href="viewgallery.php">
+                  <a href="viewgallery.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-eye">GALLERY</i></div>
                   </a>
 
-                  <a href="aboutviewfeedbacks.php">
+                  <a href="aboutviewfeedbacks.html">
                       <div class="home4" style="border-bottom: 1px solid #3635354b;"><i class="fas fa-eye">FEEDBACKS</i></div>
                   </a>
-                  <a href="index.php" style="height: 35px;margin-top:3%; width:100%;" class="btn btn-outline-danger">Logout</a>
+                  <a href="index.html" style="height: 35px;margin-top:3%; width:100%;" class="btn btn-outline-danger">Logout</a>
               </div>
           </div>
 
